@@ -1,0 +1,62 @@
+{extends file="admin-layout.tpl"}
+
+{block name="after-bootstrap-css"}
+
+{/block}
+
+{block name="no-return-functions"}
+    {$admin_current_location = 'module'}
+{/block}
+
+{block name="page-title"}{intl l='OrderMinimumAmount module configuration' d='orderminimumAmount.bo.default'}{/block}
+
+{block name="check-resource"}admin.module{/block}
+{block name="check-access"}view{/block}
+{block name="check-module"}OrderMinimumAmount{/block}
+
+{block name="main-content"}
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    {intl l="OrderMinimumAmount configuration" d='orderminimumAmount.bo.default'}
+                </h4>
+            </div>
+            {form name="order_minimum_amount_configuration_form"}
+                <form action="{url path="/admin/module/order_minimum_amount/configuration"}" method="POST">
+                    {form_hidden_fields form=$form}
+
+                    {if $form_error}
+                        <div class="alert alert-danger">{$form_error_message}</div>
+                    {/if}
+
+                    {form_field form=$form field='success_url'}
+                        <input type="hidden" name="{$name}" value="{url path={navigate to="current"}}"/>
+                    {/form_field}
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                {form_field field="minimum_amount"}
+                                    <div class="form-group {if $error}has-error{/if}">
+                                        <label for="{$label_attr.for}" class="control-label">{$label} : </label>
+                                        <input type="number" id="{$label_attr.for}" name="{$name}"
+                                               class="form-control" value="{$value}">
+                                    </div>
+                                {/form_field}
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-success form-control" value="Valider">
+                    </div>
+                </form>
+            {/form}
+        </div>
+    </div>
+{/block}
+
+{block name="javascript-initialization"}
+
+{/block}
+
+{block name="javascript-last-call"}
+
+{/block}

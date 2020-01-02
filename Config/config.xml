@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<config xmlns="http://thelia.net/schema/dic/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://thelia.net/schema/dic/config http://thelia.net/schema/dic/config/thelia-1.0.xsd">
+
+    <forms>
+        <form name="order_minimum_amount_configuration_form" class="OrderMinimumAmount\Form\Configuration" />
+    </forms>
+
+    <services>
+        <service id="order_minimum_amount.order_listener" class="OrderMinimumAmount\EventListeners\OrderListener">
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="request_stack" />
+            <argument type="service" id="thelia.taxEngine" />
+        </service>
+        <service id="order_minimum_amount.smarty.plugin" class="OrderMinimumAmount\Smarty\Plugins\OrderMinimumAmountPlugin">
+            <tag name="thelia.parser.register_plugin"/>
+        </service>
+    </services>
+
+</config>

@@ -3,6 +3,7 @@
 namespace OrderMinimumAmount\Form;
 
 use OrderMinimumAmount\OrderMinimumAmount;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Thelia\Core\Translation\Translator;
 use Thelia\Form\BaseForm;
 
@@ -18,7 +19,7 @@ class Configuration extends BaseForm
 
         foreach ($fields as $field) {
             $configQuery = OrderMinimumAmount::getConfigValue($field['name'], "");
-            $type = 'text';
+            $type = TextType::class;
             if (array_key_exists('type', $field)) {
                 $type = $field['type'];
             }
@@ -36,7 +37,7 @@ class Configuration extends BaseForm
         }
     }
 
-    public function getName()
+    public static function getName()
     {
         return "order_minimum_amount_configuration_form";
     }

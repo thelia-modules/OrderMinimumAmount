@@ -11,7 +11,7 @@ class OrderMinimumAmountPlugin extends AbstractSmartyPlugin
     public function getPluginDescriptors()
     {
         return [
-            new SmartyPluginDescriptor("function", "OrderMinimumAmount", $this, "getOrderMinimumAmount"),
+            new SmartyPluginDescriptor("function", "", $this, "getOrderMinimumAmount"),
         ];
     }
 

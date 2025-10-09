@@ -8,15 +8,15 @@
         <form name="order_minimum_amount_configuration_form" class="OrderMinimumAmount\Form\Configuration" />
     </forms>
 
-    <services>
-        <service id="order_minimum_amount.order_listener" class="OrderMinimumAmount\EventListeners\OrderListener">
-            <tag name="kernel.event_subscriber" />
-            <argument type="service" id="request_stack" />
-            <argument type="service" id="thelia.taxEngine" />
-        </service>
-        <service id="order_minimum_amount.smarty.plugin" class="OrderMinimumAmount\Smarty\Plugins\OrderMinimumAmountPlugin">
-            <tag name="thelia.parser.register_plugin"/>
-        </service>
-    </services>
+<!--    <services>-->
+<!--        <service id="order_minimum_amount.order_listener" class="OrderMinimumAmount\EventListeners\OrderListener">-->
+<!--            <tag name="kernel.event_subscriber" />-->
+<!--            <argument type="service" id="request_stack" />-->
+<!--            <argument type="service" id="thelia.taxEngine" />-->
+<!--        </service>-->
+<!--        <service id="order_minimum_amount.smarty.plugin" class="OrderMinimumAmount\Smarty\Plugins\OrderMinimumAmountPlugin">-->
+<!--            <tag name="thelia.parser.register_plugin"/>-->
+<!--        </service>-->
+<!--    </services>-->
 
 </config>

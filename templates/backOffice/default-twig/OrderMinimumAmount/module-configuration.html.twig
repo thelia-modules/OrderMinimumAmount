@@ -1,0 +1,15 @@
+{# Configuration fragment, rendered inside the module-configure page #}
+<div class="card mb-4">
+    <div class="card-header">
+        {{ 'Minimum order amount'|trans({}, 'orderminimumamount.bo.default-twig') }}
+    </div>
+    <div class="card-body">
+        {% form_theme form with bo_form_themes only %}
+        {{ form_start(form, {attr: {id: 'order-minimum-amount-form'}, method: 'POST', action: path('order_minimum_amount.admin.configuration')}) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.minimum_amount) }}
+            {{ form_row(form.taxes_included) }}
+            <button type="submit" class="btn btn-primary">{{ 'Save'|trans({}, 'orderminimumamount.bo.default-twig') }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>
